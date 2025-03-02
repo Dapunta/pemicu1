@@ -1,0 +1,18 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="school_registration_path" directorySegmentName="seg_0" id="832B548E-91AD-0B15-D286-6BC1132FC52B">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 12:58:47 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>FD9F309A-F232-F0DA-B1E0-44C64C1C565B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E0D2AA62-B663-B863-345A-B188BECC68F5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

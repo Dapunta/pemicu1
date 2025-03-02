@@ -1,0 +1,80 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="BF84FE56-7668-0F7F-BB99-D94DEE680684" name="data_user">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:04:29 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<ordsAlias>table_13</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="user_id_user" id="5911EDEA-A745-E104-04F8-02500644FA42">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:12:20 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5A41FA55-BCA6-9F05-4712-B639AB2D0767" referredColumn="AD3D0BEE-6184-6283-86A3-EA0B0BC6DBCF"/>
+</associations>
+</Column>
+<Column name="nilai_rapot" id="A071A34D-357C-4D5F-EC3D-21A5BA08FDCE">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:06:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="akta_kelahiran" id="5C4CBC62-A88B-14E6-EBF9-22D3C684014F">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:07:15 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ijazah" id="A9B484C6-51F4-FC92-3899-843837D1E60A">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:08:01 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT029</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="30160F6A-EE23-4901-68D2-0A386B16D01C" name="data_user_PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:12:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5911EDEA-A745-E104-04F8-02500644FA42"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1FE702A5-80CA-BF10-C921-01EAB12A0CC4" name="data_user_user_FK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:12:20 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="5911EDEA-A745-E104-04F8-02500644FA42"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

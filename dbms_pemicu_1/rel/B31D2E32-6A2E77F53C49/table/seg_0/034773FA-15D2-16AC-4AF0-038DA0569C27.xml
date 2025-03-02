@@ -1,0 +1,122 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="034773FA-15D2-16AC-4AF0-038DA0569C27" name="registration">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 11:10:25 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<ordsAlias>table_9</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_registration" id="A725287B-1DF8-4580-8D8D-5ADF0B7176BE">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 11:11:33 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="user_id_user" id="F75826E7-1DD1-380E-A67D-E239EE175569">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 14:28:52 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C22C0B57-B1D4-C8E7-16DF-1B9A83236896" referredColumn="AD3D0BEE-6184-6283-86A3-EA0B0BC6DBCF"/>
+</associations>
+</Column>
+<Column name="school_registration_path_school_id_school" id="B1D77799-28C0-6B65-862C-DCED37D66BF5">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 14:36:56 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E1AC803D-32FD-9F3B-3326-D30E9BFDF9AF" referredColumn="22BCEDDD-C893-AA17-A0F0-C47E33173280"/>
+</associations>
+</Column>
+<Column name="school_registration_path_registration_path_id_registration_path" id="12EB60DD-863A-74EB-3CB0-D2E055E24A3C">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 14:36:56 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E1AC803D-32FD-9F3B-3326-D30E9BFDF9AF" referredColumn="B70A2623-4763-348D-1B86-EACC2AC69C5F"/>
+</associations>
+</Column>
+<Column name="registration_time" id="1B9124E6-625C-376A-825A-525B362D88B3">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 12:49:22 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="priority" id="56A4F9A9-DD83-56BE-FF43-2CB1C373C0D3">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 16:05:02 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="09F7FDC3-224A-BC2E-908B-B6DCC6A19902" name="registration_PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 11:11:33 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A725287B-1DF8-4580-8D8D-5ADF0B7176BE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="32C28515-048E-713D-E6ED-A99356E72891" name="registration_user_FK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 14:28:52 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F75826E7-1DD1-380E-A67D-E239EE175569"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4593BF07-C6B0-49C6-A7BB-36962D38015E" name="registration_school_registration_path_FK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 14:36:56 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B1D77799-28C0-6B65-862C-DCED37D66BF5"/>
+<colUsage columnID="12EB60DD-863A-74EB-3CB0-D2E055E24A3C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

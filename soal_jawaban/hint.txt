@@ -1,0 +1,19 @@
+- table user ke table school memiliki relasi one-to-many karena 1 user bisa melakukan pendaftaran ke sekolah yang berbeda dengan jurusan yang berbeda (maksimal 2 sekolah dan 2 jurusan)
+
+- table school dan table registration_path memiliki relasi many-to-many, karena :
+1 jalur pendaftaran bisa saja tercantum di banyak sekolah
+  misal :
+    - (sekolah A) buka jalur (afirmasi)
+    - (sekolah B) buka jalur (afirmasi)
+    - (sekolah C) buka jalur (afirmasi)
+1 sekolah bisa mencantumkan banyak jalur pendaftaran
+  misal :
+    - (sekolah A) buka jalur (afirmasi)
+    - (sekolah A) buka jalur (prestasi)
+    - (sekolah A) buka jalur (orang tua)
+
+Kemungkinan masalah
+
+1. Terjadi inkonsistensi antara data pada pihak sekolah dengan data final database yang disebabkan oleh logika final sorting. contoh kasus jika kapasitas maksimal yang diterima lewat jalur A adalah 100 siswa, tapi pihak sekolah meloloskan 130 siswa, kemudian dari pihak admin tidak melakukan sorting dengan benar.
+
+2. 

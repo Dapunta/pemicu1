@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="dbms_pemicu_1" id="EDA191E8-2085-79A0-E0B3-34A7D6B7FA2B" version="3.5">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 08:54:14 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>EDA191E8-2085-79A0-E0B3-34A7D6B7FA2B</designId>
+</OSDM_Design>

@@ -1,0 +1,137 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="91795DBE-C3FA-FB1E-A6B6-8A4DD9370B70" name="user">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:05:33 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_user" id="426C66BF-89B0-AD1D-9B8F-CEA5DD391FE1">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:06:11 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="name" id="2D43C03D-E069-2841-D88E-9799896670FB">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:06:33 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nisn" id="B9DE8544-D439-2DDC-C860-65B8126EB580">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:07:31 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="8FC03D8F-FF75-4063-7437-E11907C82ED7">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:09:54 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="phone_number" id="074FBE9F-BC6E-2D32-6BE0-FF1D7379FBC9">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:14:15 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="password" id="83F588AF-7332-2EA6-B2D6-BFD36B1ECE98">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:10:03 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="address" id="A0E71170-76D3-A0DD-2782-DCCDD2B1A5E5">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:15:01 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="registration_time" id="1C492836-952C-7A2F-3A6D-A6DD2B31ED81">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 12:56:08 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="verified" id="D00EB3AB-E712-6164-26FD-D33AD4F482D8">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:19:02 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_user1" id="F4229E16-D680-2AF6-D727-066644380C56">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 18:11:30 UTC</createdTime>
+<generatorID>FA27052D-98EB-5D1C-3B53-8AEFA6DEF4A3</generatorID>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<referedAttribute>81EC101D-8A05-D579-9633-5BF204B992C5</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="41116108-6946-1A46-ACD7-CD0B3598E697" name="user PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:06:29 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>426C66BF-89B0-AD1D-9B8F-CEA5DD391FE1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

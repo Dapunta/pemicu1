@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="CB60A8AA-A3D4-C7BE-9FAE-C250AE871E8A" name="registration_path">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:40:42 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<ordsAlias>table_4</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_registration_path" id="0E3517F3-7B9E-D117-5A08-0A28C141D82E">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:42:30 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="A19A148D-6040-1CE2-376F-70542B44B9E6">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:42:30 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="F181C9F2-9C09-B472-5D0E-CDBDA351766D" name="registration_path_PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:43:15 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0E3517F3-7B9E-D117-5A08-0A28C141D82E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

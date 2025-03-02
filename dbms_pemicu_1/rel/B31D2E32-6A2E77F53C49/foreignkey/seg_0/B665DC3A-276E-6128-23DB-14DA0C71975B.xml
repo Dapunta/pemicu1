@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="B665DC3A-276E-6128-23DB-14DA0C71975B" containerWithKeyObject="EABC7362-1413-F0DF-DC4D-9FECB620022F" localFKIndex="DBEBD0CB-E38A-5426-BBFF-2CBF337A4225" name="school_registration_path_registration_path_FK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:54:10 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<referredTableLongName>registration_path</referredTableLongName>
+<deleteRule>CASCADE</deleteRule>
+<referredTableID>CB60A8AA-A3D4-C7BE-9FAE-C250AE871E8A</referredTableID>
+<keyObject>F181C9F2-9C09-B472-5D0E-CDBDA351766D</keyObject>
+<referredKeyID>F181C9F2-9C09-B472-5D0E-CDBDA351766D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_registration_path</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

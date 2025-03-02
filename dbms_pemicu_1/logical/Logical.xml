@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="87BF51F2-76DC-A762-2ED6-37977A078103" mainViewID="B55D7598-0983-5C5F-2ADD-D628A4FB20ED">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 08:54:14 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

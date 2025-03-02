@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="B4D9FEAD-C75A-19D2-6E91-AD7234F464F1" name="final_result">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 18:13:45 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_registration" id="0F030084-06EB-593D-54B9-34AE033CAFB4">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 18:16:14 UTC</createdTime>
+<generatorID>09A425F9-780F-A10E-47C1-B19A169A7A6D</generatorID>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<referedAttribute>E510EDD8-9A87-09D7-AA1F-B3A77151F7DB</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="score" id="08BAD2D2-57D8-2FD0-3F38-AEB228ECFB33">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 18:13:58 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="status" id="BA39AACB-7DCC-BD4A-FE4E-97E72C28FEB7">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 18:14:01 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="FD24DE27-820B-388E-1E5B-79AA881F0815" name="final_result PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 18:16:20 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0F030084-06EB-593D-54B9-34AE033CAFB4</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_3" directorySegmentName="seg_0" id="857D5C54-FA71-55AF-BC32-F8E792D7CED5">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 13:55:46 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<engineerTo>
+<item key="B31D2E32-ABAB-E362-56B6-6A2E77F53C49" value="true"/>
+</engineerTo>
+<sourcePk>352AB40F-B04A-3720-8245-517F69F16D4B</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>FD9F309A-F232-F0DA-B1E0-44C64C1C565B</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>E09DF2B3-7627-8D3C-521E-98CD449F7736</targetEntity>
+<transferable>true</transferable>
+<deleteRule>CASCADE</deleteRule>
+</Relation>

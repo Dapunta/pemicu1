@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="9ED64D3E-925A-C864-2AE7-59D74F24043F" name="user">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:25:22 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_user" id="AD3D0BEE-6184-6283-86A3-EA0B0BC6DBCF">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:26:00 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="name" id="2BB98CC6-A7CE-F658-BA43-91B07F954370">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nisn" id="818A2CBB-F8E7-1B97-83D9-C6F59E2CAC5D">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="A16565E7-B457-8852-7F63-EE964CAF149C">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="phone_number" id="FDE3316F-AB60-F684-A344-123EE85B2017">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="password" id="9D01899D-AFBF-FA66-28CC-7CCACF815C0D">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="address" id="1B6DA61F-E26F-E870-EDB9-7D0F50414BB7">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="registration_time" id="D4C69937-278A-81CE-5177-74F25DAF11B4">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:32:36 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT008</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="verified" id="8B36EDFB-84A1-290F-AA14-0A1BED0674DF">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:33:14 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<defaultValue>0</defaultValue>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DE846DB1-DE13-9A82-3BD0-2F5ED5684E83" name="user_PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 09:26:00 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="AD3D0BEE-6184-6283-86A3-EA0B0BC6DBCF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,71 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D3161822-C0B5-86A8-3284-FC6A75240767" name="selection_result">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 15:11:33 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<ordsAlias>table_11</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="registration_id_registration" id="1FE38F24-3D8C-C111-B670-8E6C3D761595">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 16:33:59 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1D5C5569-13F1-AF1A-B3BA-A21A1B601192" referredColumn="A725287B-1DF8-4580-8D8D-5ADF0B7176BE"/>
+</associations>
+</Column>
+<Column name="score" id="02E01FA5-3E6E-C4DB-22E9-E1314E6D5AF0">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 17:36:11 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="status" id="A7FF6606-B5E2-FF6E-1283-B1E7846F7BBF">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 15:20:39 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>15</dataTypeSize>
+<ownDataTypeParameters>15,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="20C22C13-73EB-77DB-6D51-707F2F863EE7" name="selection_result_PK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 15:19:44 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FE38F24-3D8C-C111-B670-8E6C3D761595"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1EFA4845-96ED-C6E1-B337-357507ABC101" name="selection_result_registration_FK">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 16:33:59 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="1FE38F24-3D8C-C111-B670-8E6C3D761595"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="06E67F07-03EE-2BE3-CE0A-8971B3985536">
+<createdBy>ASUS ZENBOOK</createdBy>
+<createdTime>2025-03-02 08:54:14 UTC</createdTime>
+<ownerDesignName>dbms_pemicu_1</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>
