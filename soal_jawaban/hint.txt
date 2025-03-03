@@ -1,3 +1,16 @@
+[ shortkey ]
+
+repositori : https://github.com/Dapunta/pemicu1
+petunjuk   : https://github.com/Dapunta/pemicu1/blob/main/soal_jawaban/hint.txt
+
+CDM & PDM (gambar) : https://github.com/Dapunta/pemicu1/tree/main/images
+query sql (create) : https://github.com/Dapunta/pemicu1/blob/main/sql/create_table.sql
+query sql (insert) : https://github.com/Dapunta/pemicu1/tree/main/insert_data
+query sql (select) : coming soon
+query sql (optima) : coming soon
+
+
+
 [ catatan ]
 
 - table user ke table school memiliki relasi one-to-many karena 1 user bisa melakukan pendaftaran ke sekolah yang berbeda dengan jurusan yang berbeda (maksimal 2 sekolah dan 2 jurusan)
@@ -153,4 +166,4 @@ kekurangan : sangat berat karena nested loop
 
 2. jarak antara waktu penutupan pendaftaran (22 Juni) dan pengumuman seleksi (23 juni) sangat cepat. kemungkinan ada peserta yang mendaftar pada 22 Juni, dan berkas belum diverifikasi oleh pihak sekolah.
 
-3. 3. Algoritma sorting kurang benar, belum mampu menghandle kasus yang bertabrakan. misal 1 anak lolos di 2 sekolah yang berbeda, pasti dia hanya memilih 1 sekolah saja, seharusnya slot di sekolah yang tidak dipilih menjadi kosong/tidak diisi (bisa dibuat dengan logika fallback)
+3. Algoritma sorting kurang benar, belum mampu menghandle kasus yang bertabrakan. misal 1 anak lolos di 2 sekolah yang berbeda, pasti dia hanya memilih 1 sekolah saja, seharusnya slot di sekolah yang tidak dipilih menjadi kosong/tidak diisi (bisa dibuat dengan logika fallback)
