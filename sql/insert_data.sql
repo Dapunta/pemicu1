@@ -51,7 +51,7 @@ INSERT INTO school_registration_path (school_id_school, registration_path_id_reg
 -- table user
 -- berisi data peserta calon didik baru yang mendaftar
 INSERT INTO user (id_user, name, nisn, email, phone_number, password, address, registration_time, verified) VALUES
-('USR000000000001', 'Dapunta Ratya', '5025231187', 'dapunta09091@gmail.com', '6282200000000', 'palestinehargamati987', 'Yogyakarta, Indonesia', TO_DATE('2023-06-05 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '1');
+('USR000000000001', 'Dapunta Ratya', '5025231187', 'dapunta09091@gmail.com', '6282200000000', 'palestinehargamati987', 'Yogyakarta, Indonesia', TO_DATE('2023-06-05 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '1'),
 ('USR000000000002', 'Suci Maharani', '5043241120', 'sucirani4465@gmail.com', '6282200000001', 'palestinehargamati789', 'Surabaya, Indonesia', TO_DATE('2023-06-16 23:59:59', 'YYYY-MM-DD HH24:MI:SS'), '1');
 
 -- table registration
@@ -61,3 +61,13 @@ INSERT INTO registration (id_registration, user_id_user, school_registration_pat
 ('RGS000000000002', 'USR000000000001', 'SCH000000000000', 'SMU000200823003', TO_DATE('2023-06-20 01:01:01', 'YYYY-MM-DD HH24:MI:SS'), '1'),
 ('RGS000000000003', 'USR000000000002', 'SCH000000000007', 'SMU000241223001', TO_DATE('2023-06-19 00:00:00', 'YYYY-MM-DD HH24:MI:SS'), '2'),
 ('RGS000000000004', 'USR000000000002', 'SCH000000000008', 'SMU000200823003', TO_DATE('2023-06-20 01:01:01', 'YYYY-MM-DD HH24:MI:SS'), '1');
+
+-- table selection_result
+-- berisi data mentah, peserta lolos, belum disortir (1 anak bisa lolos di 2 sekolah)
+INSERT INTO selection_result (registration_id_registration, score, status) VALUES
+('RGS000174247052', '784', 'lolos'),
+('RGS000861967600', '682', 'tidak lolos');
+
+-- table final_result
+-- berisi data final, peserta lolos, sudah disortir (1 anak hanya lolos di 1 sekolah)
+INSERT INTO final_result (selection_result_registration_id_registration, score, status) VALUES

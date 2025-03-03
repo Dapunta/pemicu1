@@ -137,7 +137,7 @@ ALTER TABLE data_user
      id_user 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 ALTER TABLE registration 
@@ -152,7 +152,7 @@ ALTER TABLE registration
      registration_path_id_registration_path 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 ALTER TABLE registration 
@@ -165,7 +165,7 @@ ALTER TABLE registration
      id_user 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 ALTER TABLE school_registration_path 
@@ -178,7 +178,7 @@ ALTER TABLE school_registration_path
      id_registration_path 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 ALTER TABLE school_registration_path 
@@ -191,7 +191,7 @@ ALTER TABLE school_registration_path
      id_school 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 ALTER TABLE selection_result 
@@ -204,7 +204,7 @@ ALTER TABLE selection_result
      id_registration 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 ALTER TABLE final_result 
@@ -217,7 +217,7 @@ ALTER TABLE final_result
      registration_id_registration 
     ) 
     ON DELETE CASCADE 
-    ON UPDATE NO ACTION 
+    ON UPDATE CASCADE 
 GO
 
 

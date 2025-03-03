@@ -1,3 +1,5 @@
+[ catatan ]
+
 - table user ke table school memiliki relasi one-to-many karena 1 user bisa melakukan pendaftaran ke sekolah yang berbeda dengan jurusan yang berbeda (maksimal 2 sekolah dan 2 jurusan)
 
 - table school dan table registration_path memiliki relasi many-to-many, karena :
@@ -12,8 +14,143 @@
     - (sekolah A) buka jalur (prestasi)
     - (sekolah A) buka jalur (orang tua)
 
-Kemungkinan masalah
 
-1. Terjadi inkonsistensi antara data pada pihak sekolah dengan data final database yang disebabkan oleh logika final sorting. contoh kasus jika kapasitas maksimal yang diterima lewat jalur A adalah 100 siswa, tapi pihak sekolah meloloskan 130 siswa, kemudian dari pihak admin tidak melakukan sorting dengan benar.
 
-2. 
+[ entity ]
+
+# table yang menyimpan data peserta (dalam string)
+# atribut verified pada tabel user bernilai 0 saat pertama kali mendaftar (belum diverifikasi). Jika berkas pada data_user sudah diverifikasi admin, barulah verified diubah menjadi 1
+table : user
+attribute :
+  - id_user           CHAR(15)      PK
+  - name              VARCHAR(255)
+  - nisn              VARCHAR(10)
+  - email             VARCHAR(255)
+  - phone_number      VARCHAR(15)
+  - password          VARCHAR(255)
+  - address           VARCHAR(255)
+  - registration_time DATE
+  - verified          BOOL
+
+# table yang menyimpan data peserta (dalam file)
+table : data_user
+attribute :
+  - user_id_user      CHAR(15)      PK  FK
+  - nilai_rapot       BLOB
+  - akta_kelahiran    BLOB
+  - ijazah            BLOB
+
+# table yang menyimpan data sekolah
+table : school
+attribute :
+  - id_school     CHAR(15)      PK
+  - name          VARCHAR(255)
+  - type          VARCHAR(255)
+
+# table yang menyimpan data jalur penerimaan
+table : registration_path
+attribute :
+  - id_registration_path  CHAR(15)      PK
+  - name                  VARCHAR(255)
+
+# table yang menyimpan data sekolah dan masing-masing jalur penerimaan
+table : school_registration_path
+attribute :
+  - school_id_school                        CHAR(15)  PK  FK
+  - registration_path_id_registration_path  CHAR(15)  PK  FK
+  - capacity                                INT
+  - used_capacity                           INT
+
+# table yang menyimpan data registrasi
+# karena setiap pendaftaran harus mencakup pilihan sekolah dan jalur, maka foreign key di registration menunjuk langsung ke conjunction table (school_registration_path)
+# satu user bisa membuat lebih dari satu pendaftaran (misal mendaftar ke sekolah A jalur prestasi dan sekolah B jalur zonasi)
+table : registration
+attribute :
+  - id_registration                                                   CHAR(15)  PK
+  - user_id_user                                                      CHAR(15)  FK
+  - school_registration_path_school_id_school                         CHAR(15)  FK
+  - school_registration_path_registration_path_id_registration_path   CHAR(15)  FK
+  - registration_time                                                 DATE
+  - priority                                                          INT
+
+# table yang menyimpan data mentah hasil seleksi (1 id_user dengan 2 id_registration bisa 'lolos' keduanya)
+# kemungkinan sebuah user memiliki beberapa registration, dan tiap registration punya selection_result masing-masing
+table : selection_result
+attribute :
+  - registration_id_registration    CHAR(15)      PK  FK
+  - score                           INT
+  - status                          VARCHAR(15)
+
+# table yang menyimpan data final hasil seleksi (1 id_user hanya 1 id_registration yang bisa 'lolos' tergantung priority)
+# jika seorang peserta user “lolos” di lebih dari satu pendaftaran, sistem akan memutuskan final berdasarkan priority atau kriteria lain, lalu mencatatnya di final_result
+table : final_result
+attribute :
+  - selection_result_registration_id_registration     CHAR(15)      PK  FK
+  - score                                             INT
+  - status                                            VARCHAR(15)
+
+
+
+[ relation ]
+
+1. user memiliki relasi one-to-one terhadap data_user
+2. school memiliki relasi many-to-many terhadap registration_path, maka dibuatlah conjunction table school_registration_path
+3. user memiliki relasi one-to-many terhadap registration (karena 1 user dapat membuat lebih dari 1 registration)
+4. registration memiliki relasi many-to-one terhadap school_registration_path (karena banyak registrasi dapat masuk ke 1 sekolah dan jurusan yang sama)
+5. registration memiliki relasi one-to-one terhadap selection_result
+6. selection_result memiliki relasi one-to-one terhadap final_result
+
+
+
+[ klarifikasi ]
+
+- secara default, atribut verified pada table user adalah 0 (karena saat daftar akun baru, file belum diverifikasi). kemudian, data_user berguna untuk menyimpan data file, jika data file terverifikasi oleh administrator, maka atribut verified pada tabel user akan dirubah menjadi 1
+- table registration memiliki relasi vital dan kompleks, karena menghubungkan banyak table sekaligus. logikanya, 1 user dapat membuat 2 atau lebih registration, dan registration itu terhubung ke (school & registration_path). jadi tidak bisa hanya school atau hanya registration_path saja karena tidak mungkin memilih sekolah tanpa jurusan dan juga sebaliknya. maka dari itu, relasi dari table registration dihubungkan ke conjuction table yaitu school_registration_path
+
+
+
+[ skema sortir dan seleksi ]
+
+1. kumpulkan list priority [1, 2, 3, ...]
+2. for i in priority : (looping untuk tiap priority)
+3. sort by score (urutkan berdasar score dari yg tertinggi hingga terendah)
+
+output (misal loop pertama)
+| id_user | id_registration | score | priority |
+| USR001 | RGS001 | 678 | 1 |
+| USR003 | RGS041 | 675 | 1 |
+| USR079 | RGS545 | 670 | 1 |
+| USR125 | RGS083 | 664 | 1 |
+
+output (misal loop kedua)
+| id_user | id_registration | score | priority |
+| USR002 | RGS001 | 671 | 2 |
+| USR034 | RGS041 | 668 | 2 |
+| USR138 | RGS545 | 659 | 2 |
+| USR236 | RGS083 | 643 | 2 |
+
+4. lakukan for loop dari atas hingga bawah pada peserta yang telah disort
+• jika used_capacity < capacity (berarti sekolah & jurusan yg dipilih masih tersedia), maka update used_capacity +1 pada tiap sekolah dan jurusan yang dipilih. biarkan status registrasi tetap 'lolos'
+• jika used_capacity == capacity (berarti sekolah & jurusan yg dipilih penuh), maka ubah status user pada table selection_result dengan key id_registration yang sesuai menjadi 'tidak lolos'
+6. untuk mengatasi kondisi dimana peserta sudah diterima di 1 sekolah (lolos pada priority 1) tetapi ternyata juga (lolos pada priority 2 atau 3), maka setelah increment used_capacity +1 pada sekolah priority 1, lalu lakukan :
+    1. select (id_user, id_registration, priority, status) join dari table (user, registration, selection_result) when id_user = id_user loop saat ini, kemudian sort by priority
+output :
+| USR001 | RGS001 | 1 | lolos |
+| USR001 | RGS030 | 2 | lolos |
+| USR001 | RGS187 | 3 | lolos |
+    2.  dengan contoh output diatas, user diterima di semua priority. maka, priority paling rendah (paling atas/kecil) dipilih menjadi status =  'lolos', sedangkan priority lainnya rubah menjadi status = 'tidak lolos'. ini bertujuan agar tidak merebut slot yang kemungkinan bisa dimasuki oleh peserta lain.
+7. ulangi for loop untuk priority 2, 3, dan seterusnya
+
+perbaikan : bisa menghandle kasus jika 1 peserta lolos di 2 pilihan, maka pilihan lain (yg priority belakangan) akan dibuang (status= 'tidak lolos')
+
+kekurangan : sangat berat karena nested loop
+
+
+
+[ Kemungkinan masalah ]
+
+1. Algoritma sorting tidak bekerja. mungkin pihak sekolah hanya melakukan verifikasi data, dan mengubah status menjadi 'lolos' tanpa memperhatikan kapasitas sekolah dan jurusan (beranggapan bahwa sorting dan perankingan final dilakukan oleh sistem database). misal ada 130 yang dianggap lolos oleh sekolah, tapi kapasitas jurusan di sekolah itu hanya ada 100.
+
+2. jarak antara waktu penutupan pendaftaran (22 Juni) dan pengumuman seleksi (23 juni) sangat cepat. kemungkinan ada peserta yang mendaftar pada 22 Juni, dan berkas belum diverifikasi oleh pihak sekolah.
+
+3. 3. Algoritma sorting kurang benar, belum mampu menghandle kasus yang bertabrakan. misal 1 anak lolos di 2 sekolah yang berbeda, pasti dia hanya memilih 1 sekolah saja, seharusnya slot di sekolah yang tidak dipilih menjadi kosong/tidak diisi (bisa dibuat dengan logika fallback)
