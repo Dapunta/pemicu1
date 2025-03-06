@@ -42,7 +42,7 @@ attribute :
   - phone_number      VARCHAR(15)
   - password          VARCHAR(255)
   - address           VARCHAR(255)
-  - registration_time DATE
+  - registration_time DATETIME
   - verified          BOOL
 
 # table yang menyimpan data peserta (dalam file)
@@ -83,7 +83,7 @@ attribute :
   - user_id_user                                                      CHAR(15)  FK
   - school_registration_path_school_id_school                         CHAR(15)  FK
   - school_registration_path_registration_path_id_registration_path   CHAR(15)  FK
-  - registration_time                                                 DATE
+  - registration_time                                                 DATETIME
   - priority                                                          INT
 
 # table yang menyimpan data mentah hasil seleksi (1 id_user dengan 2 id_registration bisa 'lolos' keduanya)
@@ -154,6 +154,10 @@ output :
     2.  dengan contoh output diatas, user diterima di semua priority. maka, priority paling rendah (paling atas/kecil) dipilih menjadi status =  'lolos', sedangkan priority lainnya rubah menjadi status = 'tidak lolos'. ini bertujuan agar tidak merebut slot yang kemungkinan bisa dimasuki oleh peserta lain.
 7. ulangi for loop untuk priority 2, 3, dan seterusnya
 
+[ ketentuan ]
+1. jangan rubah data apapun pada table selection_result
+2. data baru dimasukkan ke table final_result
+
 perbaikan : bisa menghandle kasus jika 1 peserta lolos di 2 pilihan, maka pilihan lain (yg priority belakangan) akan dibuang (status= 'tidak lolos')
 
 kekurangan : sangat berat karena nested loop
@@ -162,8 +166,24 @@ kekurangan : sangat berat karena nested loop
 
 [ Kemungkinan masalah ]
 
+[ Problem Logic ]
+
 1. Algoritma sorting tidak bekerja. mungkin pihak sekolah hanya melakukan verifikasi data, dan mengubah status menjadi 'lolos' tanpa memperhatikan kapasitas sekolah dan jurusan (beranggapan bahwa sorting dan perankingan final dilakukan oleh sistem database). misal ada 130 yang dianggap lolos oleh sekolah, tapi kapasitas jurusan di sekolah itu hanya ada 100.
+2. Algoritma sorting kurang benar, belum mampu menghandle kasus yang bertabrakan. misal 1 anak lolos di 2 sekolah yang berbeda, pasti dia hanya memilih 1 sekolah saja, seharusnya slot di sekolah yang tidak dipilih menjadi kosong/tidak diisi (bisa dibuat dengan logika fallback)
+3. Isu Transaksional dan Concurrency. Jika proses update data seleksi dilakukan secara bersamaan tanpa mekanisme kunci (locking) atau isolation level yang tepat, bisa terjadi race condition sehingga data yang tampil saat pengumuman tidak sama dengan data saat pendaftaran ulang.
 
-2. jarak antara waktu penutupan pendaftaran (22 Juni) dan pengumuman seleksi (23 juni) sangat cepat. kemungkinan ada peserta yang mendaftar pada 22 Juni, dan berkas belum diverifikasi oleh pihak sekolah.
+[ Problem Teknis ]
 
-3. Algoritma sorting kurang benar, belum mampu menghandle kasus yang bertabrakan. misal 1 anak lolos di 2 sekolah yang berbeda, pasti dia hanya memilih 1 sekolah saja, seharusnya slot di sekolah yang tidak dipilih menjadi kosong/tidak diisi (bisa dibuat dengan logika fallback)
+1. Inkonsistensi Antara selection_result dan final_result
+  - Desain Tabel Terpisah : Tabel selection_result dan final_result terpisah, tetapi tidak ada mekanisme transaksional yang menjamin sinkronisasi data antara keduanya.
+  - Race Condition : Jika ada proses yang mengubah selection_result setelah pengumuman tetapi sebelum daftar ulang (misalnya, koreksi data), final_result tidak otomatis terupdate.
+  - Bug Query : Query untuk menghasilkan final_result mungkin tidak mempertimbangkan kriteria prioritas, kapasitas jalur, atau skor dengan benar.
+
+2. Masalah Kapasitas Jalur
+  - Kolom used_capacity pada school_registration_path mungkin tidak diupdate secara atomik saat seleksi. Jika dua siswa lolos bersamaan, used_capacity bisa melebihi capacity.
+  - Tidak ada pengecekan ulang kapasitas saat daftar ulang di final_result.
+
+3. Desain Prioritas dan Seleksi
+  - Kolom priority pada tabel registration tidak diintegrasikan dengan logika seleksi. Siswa dengan prioritas tinggi bisa terlempar jika kapasitas jalur penuh.
+  - Tidak ada mekanisme untuk memastikan bahwa siswa hanya diterima di satu jalur/sekolah (kecuali diatur di aplikasi).
+
