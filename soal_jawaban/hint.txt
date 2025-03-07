@@ -3,29 +3,11 @@
 repositori : https://github.com/Dapunta/pemicu1
 petunjuk   : https://github.com/Dapunta/pemicu1/blob/main/soal_jawaban/hint.txt
 
-CDM & PDM (gambar) : https://github.com/Dapunta/pemicu1/tree/main/images
-query sql (create) : https://github.com/Dapunta/pemicu1/blob/main/sql/create_table.sql
-query sql (insert) : https://github.com/Dapunta/pemicu1/tree/main/insert_data
-query sql (select) : coming soon
-query sql (optima) : coming soon
-
-
-
-[ catatan ]
-
-- table user ke table school memiliki relasi one-to-many karena 1 user bisa melakukan pendaftaran ke sekolah yang berbeda dengan jurusan yang berbeda (maksimal 2 sekolah dan 2 jurusan)
-
-- table school dan table registration_path memiliki relasi many-to-many, karena :
-1 jalur pendaftaran bisa saja tercantum di banyak sekolah
-  misal :
-    - (sekolah A) buka jalur (afirmasi)
-    - (sekolah B) buka jalur (afirmasi)
-    - (sekolah C) buka jalur (afirmasi)
-1 sekolah bisa mencantumkan banyak jalur pendaftaran
-  misal :
-    - (sekolah A) buka jalur (afirmasi)
-    - (sekolah A) buka jalur (prestasi)
-    - (sekolah A) buka jalur (orang tua)
+CDM & PDM (gambar)   : https://github.com/Dapunta/pemicu1/tree/main/images
+query SQL (create)   : https://github.com/Dapunta/pemicu1/blob/main/sql/create_table.sql
+query SQL (insert)   : https://github.com/Dapunta/pemicu1/tree/main/insert_data
+query SQL (solution) : https://github.com/Dapunta/pemicu1/blob/main/sql/solution.sql
+query SQL (optimal)  : https://github.com/Dapunta/pemicu1/blob/main/sql/optimal.sql
 
 
 
@@ -108,10 +90,27 @@ attribute :
 
 1. user memiliki relasi one-to-one terhadap data_user
 2. school memiliki relasi many-to-many terhadap registration_path, maka dibuatlah conjunction table school_registration_path
-3. user memiliki relasi one-to-many terhadap registration (karena 1 user dapat membuat lebih dari 1 registration)
+3. user memiliki relasi one-to-many terhadap registration (karena 1 user dapat membuat lebih dari 1 registration atau mendaftar di lebih dari 1 sekolah)
 4. registration memiliki relasi many-to-one terhadap school_registration_path (karena banyak registrasi dapat masuk ke 1 sekolah dan jurusan yang sama)
 5. registration memiliki relasi one-to-one terhadap selection_result
 6. selection_result memiliki relasi one-to-one terhadap final_result
+
+
+
+[ catatan ]
+
+- table user ke table school memiliki relasi one-to-many karena 1 user bisa melakukan pendaftaran ke sekolah yang berbeda dengan jurusan yang berbeda (maksimal 2 sekolah dan 2 jurusan)
+- table school dan table registration_path memiliki relasi many-to-many, karena :
+  1 jalur pendaftaran bisa saja tercantum di banyak sekolah
+    misal :
+      - (sekolah A) buka jalur (afirmasi)
+      - (sekolah B) buka jalur (afirmasi)
+      - (sekolah C) buka jalur (afirmasi)
+  1 sekolah bisa mencantumkan banyak jalur pendaftaran
+    misal :
+      - (sekolah A) buka jalur (afirmasi)
+      - (sekolah A) buka jalur (prestasi)
+      - (sekolah A) buka jalur (orang tua)
 
 
 
@@ -122,57 +121,15 @@ attribute :
 
 
 
-[ skema sortir dan seleksi ]
+[ kemungkinan masalah ]
 
-1. kumpulkan list priority [1, 2, 3, ...]
-2. for i in priority : (looping untuk tiap priority)
-3. sort by score (urutkan berdasar score dari yg tertinggi hingga terendah)
-
-output (misal loop pertama)
-| id_user | id_registration | score | priority |
-| USR001 | RGS001 | 678 | 1 |
-| USR003 | RGS041 | 675 | 1 |
-| USR079 | RGS545 | 670 | 1 |
-| USR125 | RGS083 | 664 | 1 |
-
-output (misal loop kedua)
-| id_user | id_registration | score | priority |
-| USR002 | RGS001 | 671 | 2 |
-| USR034 | RGS041 | 668 | 2 |
-| USR138 | RGS545 | 659 | 2 |
-| USR236 | RGS083 | 643 | 2 |
-
-4. lakukan for loop dari atas hingga bawah pada peserta yang telah disort
-• jika used_capacity < capacity (berarti sekolah & jurusan yg dipilih masih tersedia), maka update used_capacity +1 pada tiap sekolah dan jurusan yang dipilih. biarkan status registrasi tetap 'lolos'
-• jika used_capacity == capacity (berarti sekolah & jurusan yg dipilih penuh), maka ubah status user pada table selection_result dengan key id_registration yang sesuai menjadi 'tidak lolos'
-6. untuk mengatasi kondisi dimana peserta sudah diterima di 1 sekolah (lolos pada priority 1) tetapi ternyata juga (lolos pada priority 2 atau 3), maka setelah increment used_capacity +1 pada sekolah priority 1, lalu lakukan :
-    1. select (id_user, id_registration, priority, status) join dari table (user, registration, selection_result) when id_user = id_user loop saat ini, kemudian sort by priority
-output :
-| USR001 | RGS001 | 1 | lolos |
-| USR001 | RGS030 | 2 | lolos |
-| USR001 | RGS187 | 3 | lolos |
-    2.  dengan contoh output diatas, user diterima di semua priority. maka, priority paling rendah (paling atas/kecil) dipilih menjadi status =  'lolos', sedangkan priority lainnya rubah menjadi status = 'tidak lolos'. ini bertujuan agar tidak merebut slot yang kemungkinan bisa dimasuki oleh peserta lain.
-7. ulangi for loop untuk priority 2, 3, dan seterusnya
-
-[ ketentuan ]
-1. jangan rubah data apapun pada table selection_result
-2. data baru dimasukkan ke table final_result
-
-perbaikan : bisa menghandle kasus jika 1 peserta lolos di 2 pilihan, maka pilihan lain (yg priority belakangan) akan dibuang (status= 'tidak lolos')
-
-kekurangan : sangat berat karena nested loop
-
-
-
-[ Kemungkinan masalah ]
-
-[ Problem Logic ]
+[ problem logic ]
 
 1. Algoritma sorting tidak bekerja. mungkin pihak sekolah hanya melakukan verifikasi data, dan mengubah status menjadi 'lolos' tanpa memperhatikan kapasitas sekolah dan jurusan (beranggapan bahwa sorting dan perankingan final dilakukan oleh sistem database). misal ada 130 yang dianggap lolos oleh sekolah, tapi kapasitas jurusan di sekolah itu hanya ada 100.
 2. Algoritma sorting kurang benar, belum mampu menghandle kasus yang bertabrakan. misal 1 anak lolos di 2 sekolah yang berbeda, pasti dia hanya memilih 1 sekolah saja, seharusnya slot di sekolah yang tidak dipilih menjadi kosong/tidak diisi (bisa dibuat dengan logika fallback)
 3. Isu Transaksional dan Concurrency. Jika proses update data seleksi dilakukan secara bersamaan tanpa mekanisme kunci (locking) atau isolation level yang tepat, bisa terjadi race condition sehingga data yang tampil saat pengumuman tidak sama dengan data saat pendaftaran ulang.
 
-[ Problem Teknis ]
+[ problem teknis ]
 
 1. Inkonsistensi Antara selection_result dan final_result
   - Desain Tabel Terpisah : Tabel selection_result dan final_result terpisah, tetapi tidak ada mekanisme transaksional yang menjamin sinkronisasi data antara keduanya.
@@ -187,3 +144,32 @@ kekurangan : sangat berat karena nested loop
   - Kolom priority pada tabel registration tidak diintegrasikan dengan logika seleksi. Siswa dengan prioritas tinggi bisa terlempar jika kapasitas jalur penuh.
   - Tidak ada mekanisme untuk memastikan bahwa siswa hanya diterima di satu jalur/sekolah (kecuali diatur di aplikasi).
 
+
+
+[ optimasi ]
+
+1. Penggunaan Common Table Expression (CTE) untuk Ranking
+  - Menggunakan CTE (seperti WITH RankedPriority1 dan WITH RankedPriority2).
+    Proses perankingan siswa untuk masing‑masing priority dihitung sekali dan hasilnya langsung digunakan untuk INSERT ke tabel final_result.
+    Mengurangi pengulangan perhitungan dan subquery yang berat, sehingga menghemat waktu proses terutama pada dataset besar.
+
+2. Pembuatan Indeks pada Kolom-Kolom Join
+  - Indeks dibuat pada kolom yang sering digunakan untuk join, misalnya pada tabel registration, selection_result, dan final_result.
+    Operasi join dapat berjalan jauh lebih cepat, sehingga menurunkan beban query dan meningkatkan kecepatan eksekusi.
+
+3. Penggunaan EXISTS/NOT EXISTS
+  - Penggunaan EXISTS dan NOT EXISTS dalam kondisi update menghindari overhead dari subquery yang mengembalikan banyak baris (seperti dengan DISTINCT) dan berhenti saat menemukan kecocokan pertama.
+    Sangat membantu ketika memeriksa kondisi kehadiran data (misalnya, apakah suatu user sudah ada di final_result) sehingga mengurangi waktu eksekusi.
+
+4. Penggabungan Update Kondisi Menjadi Satu Query
+  - Kedua kondisi update status di selection_result (untuk priority > X dan priority = X) digabungkan ke dalam satu pernyataan UPDATE menggunakan operator OR.
+    Ini mengurangi jumlah query yang harus dieksekusi secara terpisah, sehingga mengurangi overhead transaksi dan akses berulang ke tabel yang sama.
+
+5. Reset dan Update Kapasitas
+  - Reset nilai kapasitas dan update jumlah siswa yang lolos dilakukan dengan query yang sudah dioptimasi melalui join langsung dengan subquery agregat.
+    Update kapasitas kelas menjadi lebih efisien karena hanya menghitung jumlah yang tepat berdasarkan entri di final_result, mengurangi kemungkinan perhitungan ulang yang tidak perlu.
+
+Pengaruh Keseluruhan:
+  - Pada sistem dengan volume data besar, optimasi-optimasi ini dapat mengurangi waktu eksekusi secara signifikan (misalnya, dari beberapa detik menjadi ratusan milidetik) karena pengurangan perhitungan berulang, pemrosesan subquery yang lebih cepat, dan efisiensi join berkat indeks.
+  - Dengan menggabungkan beberapa operasi dalam satu query, beban transaksi pada server database berkurang, sehingga memungkinkan skalabilitas dan kinerja yang lebih baik secara keseluruhan.
+  - Optimasi-optimasi ini tidak hanya meningkatkan kecepatan eksekusi tetapi juga membuat kode lebih terstruktur dan mudah dipelihara.

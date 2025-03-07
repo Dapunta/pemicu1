@@ -1,12 +1,11 @@
 -- resetter
-
 UPDATE school_registration_path SET used_capacity = 0;
 DELETE FROM final_result;
+DELETE FROM selection_result;
 DROP TABLE temp_priority_1;
 DROP TABLE temp_priority_2;
 
 -- Tambahkan indeks pada kolom yang sering di-join untuk meningkatkan performa:
-
 CREATE INDEX idx_registration_school_path ON registration (
     school_registration_path_school_id_school,
     school_registration_path_registration_path_id_registration_path
@@ -170,6 +169,36 @@ SET srp.used_capacity = srp.used_capacity + fr.jumlah_lolos;
 COMMIT;
 
 SELECT * FROM final_result;
+
+-- Langkah 2.3: Update status siswa yang sudah diterima di prioritas 2 ke "tidak lolos" untuk prioritas > 1
+
+-- update status pada selection_result menjadi 'tidak lolos' jika siswa sudah diterima di priority 2
+UPDATE selection_result sr
+JOIN registration r 
+    ON sr.registration_id_registration = r.id_registration
+SET sr.status = 'tidak lolos'
+WHERE r.user_id_user IN (
+    SELECT DISTINCT r.user_id_user
+    FROM registration r
+    INNER JOIN final_result fr 
+        ON r.id_registration = fr.selection_result_registration_id_registration
+)
+AND r.priority > 2;
+
+-- update status pada selection_result menjadi 'tidak lolos' jika kapasitas kelas penuh
+UPDATE selection_result sr
+JOIN registration r 
+    ON sr.registration_id_registration = r.id_registration
+SET sr.status = 'tidak lolos'
+WHERE r.user_id_user NOT IN (
+    SELECT DISTINCT r.user_id_user
+    FROM registration r
+    INNER JOIN final_result fr 
+        ON r.id_registration = fr.selection_result_registration_id_registration
+)
+AND r.priority = 2;
+
+SELECT * FROM selection_result;
 
 -- bersihkan temporary table
 

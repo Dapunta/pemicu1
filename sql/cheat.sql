@@ -13,7 +13,9 @@ DELETE FROM user;
 DROP TABLE temp_priority_1;
 DROP TABLE temp_priority_2;
 
-
+DROP INDEX idx_registration_school ON registration;
+DROP INDEX idx_selection_result_registration ON selection_result;
+DROP INDEX idx_final_result_registration ON final_result;
 
 -- cek apakah ada hasil duplikat
 
@@ -36,8 +38,6 @@ WHERE u.id_user IN (
 )
 ORDER BY u.id_user, fr.score DESC;
 
-
-
 -- hitung total lolos dan tidak lolos
 
 SELECT 
@@ -45,7 +45,6 @@ SELECT
     SUM(CASE WHEN status = 'lolos' THEN 1 ELSE 0 END) AS jumlah_lolos,
     SUM(CASE WHEN status = 'tidak lolos' THEN 1 ELSE 0 END) AS jumlah_tidak_lolos
 FROM selection_result;
-
 SELECT 
     COUNT(*) AS total_peserta,
     SUM(CASE WHEN status = 'lolos' THEN 1 ELSE 0 END) AS jumlah_lolos
