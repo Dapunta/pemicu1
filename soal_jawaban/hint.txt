@@ -3,12 +3,12 @@
 repositori : https://github.com/Dapunta/pemicu1
 petunjuk   : https://github.com/Dapunta/pemicu1/blob/main/soal_jawaban/hint.txt
 
-CDM & PDM (gambar)   : https://github.com/Dapunta/pemicu1/tree/main/images
+CDM & PDM (gambar)   : https://github.com/Dapunta/pemicu1/tree/main/images/diagram
 query SQL (create)   : https://github.com/Dapunta/pemicu1/blob/main/sql/create_table.sql
 query SQL (insert)   : https://github.com/Dapunta/pemicu1/tree/main/insert_data
 query SQL (solution) : https://github.com/Dapunta/pemicu1/blob/main/sql/solution.sql
 query SQL (optimal)  : https://github.com/Dapunta/pemicu1/blob/main/sql/optimal.sql
-
+result & output      : https://github.com/Dapunta/pemicu1/tree/main/images/result
 
 
 [ entity ]
