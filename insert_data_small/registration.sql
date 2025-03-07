@@ -1,0 +1,8 @@
+-- table registration
+-- berisi data pendaftaran
+INSERT INTO registration (id_registration, user_id_user, school_registration_path_school_id_school, school_registration_path_registration_path_id_registration_path, registration_time, priority) VALUES
+('RGS000000000001', 'USR000000000001', 'SCH000000000001', 'RGP000000001SMA', '2023-06-19 15:37:30', '1'),
+('RGS000000000002', 'USR000000000001', 'SCH000000000002', 'RGP000000001SMA', '2023-06-20 22:35:30', '2'),
+('RGS000000000003', 'USR000000000002', 'SCH000000000002', 'RGP000000001SMA', '2023-06-22 03:37:05', '1'),
+('RGS000000000004', 'USR000000000003', 'SCH000000000001', 'RGP000000001SMA', '2023-06-22 03:37:05', '1'),
+('RGS000000000005', 'USR000000000003', 'SCH000000000002', 'RGP000000001SMA', '2023-06-22 03:37:05', '2');
