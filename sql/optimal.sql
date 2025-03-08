@@ -1,8 +1,3 @@
--- reset
-UPDATE school_registration_path SET used_capacity = 0;
-DELETE FROM final_result;
-DELETE FROM selection_result;
-
 -- optimasi indeks
 CREATE INDEX idx_registration_school ON registration(school_registration_path_school_id_school, school_registration_path_registration_path_id_registration_path);
 CREATE INDEX idx_selection_result_registration ON selection_result(registration_id_registration);
@@ -57,34 +52,31 @@ JOIN (
     AND srp.registration_path_id_registration_path = fr.school_registration_path_registration_path_id_registration_path
 SET srp.used_capacity = srp.used_capacity + fr.jumlah_lolos;
 
--- update status pada selection_result setelah priority 2
-UPDATE selection_result sr
-JOIN registration r ON sr.registration_id_registration = r.id_registration
+-- update status pada selection_result setelah priority 1
+
+UPDATE selection_result sr -- sudah diterima di prioritas 1 dan jumlah prioritas > 1
+JOIN registration r 
+    ON sr.registration_id_registration = r.id_registration
 SET sr.status = 'tidak lolos'
-WHERE 
-    (
-        -- Kondisi 1 : Jika priority > 1 dan user sudah diterima (ada di final_result)
-        r.priority > 1
-        AND EXISTS (
-            SELECT 1
-            FROM final_result fr
-            JOIN registration r2 
-                ON fr.selection_result_registration_id_registration = r2.id_registration
-            WHERE r2.user_id_user = r.user_id_user
-        )
-    )
-    OR
-    (
-        -- Kondisi 2 : Jika priority = 1 dan user tidak ada di final_result (kapasitas penuh)
-        r.priority = 1
-        AND NOT EXISTS (
-            SELECT 1
-            FROM registration r2
-            JOIN final_result fr 
-                ON r2.id_registration = fr.selection_result_registration_id_registration
-            WHERE r2.user_id_user = r.user_id_user
-        )
-    );
+WHERE r.user_id_user IN (
+    SELECT DISTINCT r.user_id_user
+    FROM registration r
+    INNER JOIN final_result fr 
+        ON r.id_registration = fr.selection_result_registration_id_registration
+)
+AND r.priority > 1;
+
+UPDATE selection_result sr -- tidak diterima di prioritas 1 karena kapasitas penuh
+JOIN registration r 
+    ON sr.registration_id_registration = r.id_registration
+SET sr.status = 'tidak lolos'
+WHERE r.user_id_user NOT IN (
+    SELECT DISTINCT r.user_id_user
+    FROM registration r
+    INNER JOIN final_result fr 
+        ON r.id_registration = fr.selection_result_registration_id_registration
+)
+AND r.priority = 1;
 
 -- proses sorting priority 2
 INSERT INTO final_result (selection_result_registration_id_registration, score, status)
@@ -136,43 +128,27 @@ JOIN (
 SET srp.used_capacity = srp.used_capacity + fr.jumlah_lolos;
 
 -- update status pada selection_result setelah priority 2
-UPDATE selection_result sr
-JOIN registration r ON sr.registration_id_registration = r.id_registration
-SET sr.status = 'tidak lolos'
-WHERE 
-    (
-        -- Kondisi 1 : Jika priority > 2 dan user sudah diterima (ada di final_result)
-        r.priority > 2
-        AND EXISTS (
-            SELECT 1
-            FROM final_result fr
-            JOIN registration r2 
-                ON fr.selection_result_registration_id_registration = r2.id_registration
-            WHERE r2.user_id_user = r.user_id_user
-        )
-    )
-    OR
-    (
-        -- Kondisi 2 : Jika priority = 2 dan user tidak ada di final_result (kapasitas penuh)
-        r.priority = 2
-        AND NOT EXISTS (
-            SELECT 1
-            FROM registration r2
-            JOIN final_result fr 
-                ON r2.id_registration = fr.selection_result_registration_id_registration
-            WHERE r2.user_id_user = r.user_id_user
-        )
-    );
 
--- final output
-SELECT 
-    u.id_user,
-    r.id_registration,
-    u.name,
-    r.priority,
-    fr.score,
-    fr.status
-FROM final_result fr
-JOIN registration r ON fr.selection_result_registration_id_registration = r.id_registration
-JOIN user u ON r.user_id_user = u.id_user
-ORDER BY r.priority, fr.score DESC;
+UPDATE selection_result sr -- sudah diterima di prioritas 2 dan jumlah prioritas > 2
+JOIN registration r 
+    ON sr.registration_id_registration = r.id_registration
+SET sr.status = 'tidak lolos'
+WHERE r.user_id_user IN (
+    SELECT DISTINCT r.user_id_user
+    FROM registration r
+    INNER JOIN final_result fr 
+        ON r.id_registration = fr.selection_result_registration_id_registration
+)
+AND r.priority > 2;
+
+UPDATE selection_result sr -- tidak diterima di prioritas 2 karena kapasitas penuh
+JOIN registration r 
+    ON sr.registration_id_registration = r.id_registration
+SET sr.status = 'tidak lolos'
+WHERE r.user_id_user NOT IN (
+    SELECT DISTINCT r.user_id_user
+    FROM registration r
+    INNER JOIN final_result fr 
+        ON r.id_registration = fr.selection_result_registration_id_registration
+)
+AND r.priority = 2;
