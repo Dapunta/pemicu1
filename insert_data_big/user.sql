@@ -2136,7 +2136,7 @@ INSERT INTO user (id_user, name, nisn, email, phone_number, password, address, r
 ('USR000957155578', 'Cheryl Ramos', '0000670966', 'cherylramos804@gmail.com', '6287402772898', 'EJHPDs29hpx1', '950 White Causeway Apt. 576 Port Tammy, MN 85045', '2023-06-11 16:21:04', '1'),
 ('USR000698622521', 'Jennifer Fitzgerald', '0000228885', 'jenniferfitzgerald930@gmail.com', '6283086697301', 'rTY4syvfjany', '8065 Justin Stream Briannashire, AK 85788', '2023-06-14 07:03:18', '1'),
 ('USR000469859619', 'Nicole Blair', '0000250680', 'nicoleblair143@gmail.com', '6287351357661', 'aQ2XJ8cdBEWT', '05133 Mike Squares Apt. 692 South Karen, AK 14366', '2023-06-06 13:46:30', '1'),
-('USR000159170194', 'Michael Meadows', '0000811443', 'michaelmeadows266@gmail.com', '6288638869354', 'uSMHIVgTEdZV', '371 Anthony Skyway Port Donnaville, RI 77656', '2023-06-08 13:39:05', '1'),
+('USR000159170194', 'Michael Meadows', '0000811442', 'michaelmeadows266@gmail.com', '6288638869354', 'uSMHIVgTEdZV', '371 Anthony Skyway Port Donnaville, RI 77656', '2023-06-08 13:39:05', '1'),
 ('USR000124712441', 'Dylan Vang', '0000345989', 'dylanvang931@gmail.com', '6289792631910', 'jp52IitssKsA', '9814 Hunter Flats Apt. 372 Carlport, MP 85934', '2023-06-11 03:06:02', '1'),
 ('USR000492874444', 'Jimmy Carr', '0000613108', 'jimmycarr888@gmail.com', '6283741288044', 'hAJUuFaFt9dr', '991 Singleton Manors Apt. 574 South Heatherberg, RI 54959', '2023-06-05 22:54:03', '1'),
 ('USR000384911689', 'Dylan Evans', '0000355015', 'dylanevans218@gmail.com', '6281509232230', 'fLEoLDcQnFei', 'Unit 1276 Box 7151 DPO AE 39270', '2023-06-06 20:17:07', '1'),
