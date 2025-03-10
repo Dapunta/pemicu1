@@ -1689,7 +1689,7 @@ INSERT INTO user (id_user, name, nisn, email, phone_number, password, address, r
 ('USR000951397733', 'Jessica Mcdonald', '0000174512', 'jessicamcdonald474@gmail.com', '6281579117434', 'RRyhYZwRn0QJ', 'USCGC Smith FPO AA 50107', '2023-06-08 16:09:29', '1'),
 ('USR000198698504', 'Christopher Jones', '0000917847', 'christopherjones579@gmail.com', '6288684084280', 'whxaoiyguolA', '0095 Antonio Lights North James, CT 93633', '2023-06-14 17:31:35', '1'),
 ('USR000725326176', 'Isabella Gray', '0000986514', 'isabellagray753@gmail.com', '6287545310087', '8i4MKvAxEFvT', '041 Short Gateway Apt. 683 Collinsland, MH 32520', '2023-06-15 18:12:18', '1'),
-('USR000532486480', 'Shirley Nguyen', '0000852190', 'shirleynguyen601@gmail.com', '6284535579937', 'r8FAr3FjeZe4', '1359 Robinson Roads Apt. 170 Johnsonberg, IN 60703', '2023-06-05 02:40:40', '1'),
+('USR000532486480', 'Shirley Nguyen', '0000852189', 'shirleynguyen601@gmail.com', '6284535579937', 'r8FAr3FjeZe4', '1359 Robinson Roads Apt. 170 Johnsonberg, IN 60703', '2023-06-05 02:40:40', '1'),
 ('USR000239626230', 'Sylvia Watts', '0000393047', 'sylviawatts297@gmail.com', '6282258955572', '2bXXi7bYbJHi', '733 Ramirez Circle Suite 183 Lake David, WI 78874', '2023-06-08 04:55:14', '1'),
 ('USR000501002144', 'Dawn Warren', '0000568061', 'dawnwarren422@gmail.com', '6284808736324', 'PMBX6H3MmbIn', '9195 David Ville Suite 040 Port Chelsea, MO 45941', '2023-06-05 04:14:59', '1'),
 ('USR000866592862', 'Ms. Cassie Jackson', '0000897939', 'ms.cassiejackson319@gmail.com', '6286433490566', 'D10Y9fPZ74Po', '014 Rodriguez Passage New Antonio, ME 67659', '2023-06-16 06:28:04', '1'),
