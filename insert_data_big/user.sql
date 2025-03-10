@@ -693,7 +693,7 @@ INSERT INTO user (id_user, name, nisn, email, phone_number, password, address, r
 ('USR000545995534', 'Ryan Mckinney', '0000872406', 'ryanmckinney139@gmail.com', '6283825782791', 'kECjVFn00e5F', '9861 Moss Valley Curtismouth, MD 97468', '2023-06-12 11:10:53', '1'),
 ('USR000821337859', 'Dawn Foster', '0000196370', 'dawnfoster726@gmail.com', '6282700568861', 'fAXvcdCZqJNU', '8833 Martinez Heights Apt. 299 New Holly, NE 49572', '2023-06-11 01:34:06', '1'),
 ('USR000842050175', 'Anthony Ritter', '0000874230', 'anthonyritter818@gmail.com', '6283283668172', 'Lp5s3nk5zHow', '39156 Douglas Summit Suite 316 Port Angela, TN 33184', '2023-06-08 18:52:31', '1'),
-('USR000642709647', 'Katherine Johnson', '0000228690', 'katherinejohnson571@gmail.com', '6283577313006', '4mhvhhlOUDs0', '32984 John Pine Apt. 559 South Tonybury, ME 84056', '2023-06-05 18:35:53', '1'),
+('USR000642709647', 'Katherine Johnson', '0000228689', 'katherinejohnson571@gmail.com', '6283577313006', '4mhvhhlOUDs0', '32984 John Pine Apt. 559 South Tonybury, ME 84056', '2023-06-05 18:35:53', '1'),
 ('USR000515601865', 'Harry Bell', '0000395043', 'harrybell245@gmail.com', '6288365808201', 'HsbPr8Ho4hhR', '234 Bridges Way Apt. 054 Comptonmouth, NJ 22937', '2023-06-15 02:26:58', '1'),
 ('USR000390139580', 'Mathew Luna', '0000244494', 'mathewluna284@gmail.com', '6287201580713', 'HGOHyf60aPtv', '09045 Stacey Lights Fosterside, IA 32915', '2023-06-14 04:14:10', '1'),
 ('USR000521258777', 'Alicia Chen', '0000333295', 'aliciachen307@gmail.com', '6287599652620', 'ZZMVL4XnqT9B', '107 Derek Fords Cervanteston, AS 91392', '2023-06-12 05:23:54', '1'),
