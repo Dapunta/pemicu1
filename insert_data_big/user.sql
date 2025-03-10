@@ -3,7 +3,7 @@
 INSERT INTO user (id_user, name, nisn, email, phone_number, password, address, registration_time, verified) VALUES
 ('USR000000000001', 'Dapunta Ratya', '5025231187', 'dapunta09091@gmail.com', '6282200000000', 'palestinehargamati987', 'Yogyakarta, Indonesia', '2023-06-05 00:00:00', '1'),
 ('USR000000000002', 'Suci Maharani', '5043241120', 'sucirani4465@gmail.com', '6282200000001', 'palestinehargamati789', 'Surabaya, Indonesia', '2023-06-16 23:59:59', '1'),
-('USR000000000003', 'Hanasta Rayartha', '5043241120', 'hanaraya3322@gmail.com', '6282200000002', 'palestinehargamati789', 'Jakarta, Indonesia', '2023-06-16 23:59:59', '1'),
+('USR000000000003', 'Hanasta Rayartha', '5043241119', 'hanaraya3322@gmail.com', '6282200000002', 'palestinehargamati789', 'Jakarta, Indonesia', '2023-06-16 23:59:59', '1'),
 ('USR000143185475', 'Stephen Bates', '0000169019', 'stephenbates595@gmail.com', '6287131461207', 'x0eeveC3AfrP', '60713 Martinez Crescent Michaelstad, IN 06509', '2023-06-11 16:18:35', '1'),
 ('USR000823794918', 'Nathan Rhodes', '0000185827', 'nathanrhodes174@gmail.com', '6284247376819', 'RZKuRmqLAZ66', '363 Edwards Via Suite 906 Lake Sandra, GU 31828', '2023-06-06 05:40:23', '1'),
 ('USR000327344386', 'Beth Meza', '0000774895', 'bethmeza261@gmail.com', '6287102383189', '8QkmPA5SH6kz', '317 Kiara Summit Suite 310 Johnsonville, CA 25568', '2023-06-09 15:57:08', '1'),
